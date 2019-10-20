@@ -1,0 +1,5 @@
+package com.imooc;
+
+public interface Visit<T> {
+    void operate(T t);
+}

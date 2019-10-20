@@ -1,0 +1,55 @@
+package com.imooc;
+
+import java.util.LinkedList;
+
+public class Queue<T> extends AbstractQueue<T> implements Visit<T> {
+
+    @Override
+    public void clearQueue() {
+        list.clear();
+    }
+
+    @Override
+    public boolean isEmpty() {
+        boolean a = false;
+        if (list.isEmpty()) {
+            a = true;
+        }
+        return a;
+    }
+
+    @Override
+    public int length() {
+        return list.size();
+    }
+
+    @Override
+    public T poll() {
+        return list.get(0);
+    }
+
+    @Override
+    public void enQueue(T t) {
+        list.add(t);
+    }
+
+    @Override
+    public T deQueue() {
+        return list.remove(0);
+    }
+
+    @Override
+    public void traverse(Visit visit) {
+        for (T e : list) {
+            operate(e);
+        }
+    }
+
+    @Override
+    public void operate(T t) {
+
+    }
+
+    public void main(String[] args) {
+    }
+}

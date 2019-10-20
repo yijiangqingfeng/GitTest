@@ -1,0 +1,67 @@
+package com.imooc;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class HomeworkThree {
+
+    public static void main(String[] args) {
+
+    }
+
+    //返回list中所有以大写字母A开头的字符串组成的list。
+    public static List<String> startWithA(List<String> list) {
+        List<String> arraylist1 = new ArrayList<String>();
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).substring(0, 1).equals("A")) {
+                arraylist1.add(list.get(i));
+            }
+        }
+        return arraylist1;
+    }
+
+    //将传进来的变长参数转换为一个List返回
+    public static <T> String mapToList(T... ts) {
+        String arraylist2 = "";
+        for (T a : ts) {
+            arraylist2 += a.toString();
+        }
+        return arraylist2.toString();
+    }
+
+    //    //将list中的每一个元素先按照字符串长度大小排序，再在每一个字符串后面加上该字符串的长度,返回操作 后的list
+    public static List<String> dataProcessing(List<String> list) {
+        List arraylist3 = new ArrayList();
+        for (int x = 0; x < list.size(); x++) {
+            for (int y = 0; y < list.size() - 1; y++) {
+                if (list.get(y).toString().length() > list.get(y + 1).toString().length()) {
+                    String a = list.get(y).toString();
+                    list.set(y, list.get(y + 1).toString());
+                    list.set(y + 1, a);
+                }
+            }
+        }
+        for (int i = 0; i < list.size(); i++) {
+            arraylist3.add(i, list.get(i).toString() + list.get(i).length());
+        }
+        return arraylist3;
+    }
+
+    //    //将传进来的list进行去重操作并返回去重后的list。
+    public static <T> List<T> deduplicate(List<T> list) {
+        List arraylist4 = new ArrayList();
+        arraylist4.add(list.get(0));
+        for (int i = 1; i < list.size(); i++) {
+            for (int j = 0; j < arraylist4.size(); j++) {
+                if (arraylist4.get(j) == list.get(i)) {
+                    break;
+                } else {
+                    if (j == arraylist4.size() - 1) {
+                        arraylist4.add(list.get(i));
+                    }
+                }
+            }
+        }
+        return arraylist4;
+    }
+}
